@@ -2,6 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 let humanChoice = "";
 let computerChoice = "";
+let message = "";
 
 function getComputeChoice() {
   const play = ["rock", "paper", "scissors"];
@@ -28,7 +29,7 @@ function getComputeChoice() {
 // }
 
 function playRound(humanChoice, computerChoice) {
-  let message = "";
+  message = "";
   // humanChoice = getHumanChoice();
   computerChoice = getComputeChoice();
   if (winCondition(humanChoice, computerChoice) === humanChoice) {
@@ -40,7 +41,6 @@ function playRound(humanChoice, computerChoice) {
   } else {
     message = `It's a draw, you both chose ${humanChoice}`;
   }
-  alert(message);
   return message;
 }
 
@@ -63,6 +63,7 @@ function winCondition(humanChoice, computerChoice) {
 // }
 
 const buttons = document.querySelector(".buttons");
+const pEl = document.querySelector("#result");
 
 buttons.addEventListener("click", function () {
   switch (event.target.id) {
@@ -76,4 +77,5 @@ buttons.addEventListener("click", function () {
       playRound("scissors", computerChoice);
       break;
   }
+  pEl.textContent = message;
 });

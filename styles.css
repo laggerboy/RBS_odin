@@ -1,0 +1,21 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  text-align: center;
+  font-size: 26px;
+}
+
+.buttons {
+  display: inline;
+  margin: auto;
+  width: 50vw;
+}
+
+.buttons,
+button {
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
+}
