@@ -7,6 +7,11 @@ html {
   font-size: 26px;
 }
 
+.scores {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .buttons {
   display: inline;
   margin: auto;
