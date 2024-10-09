@@ -56,4 +56,13 @@ buttons.addEventListener("click", function () {
       break;
   }
   pEl.textContent = message;
+  if (humanScore === 5) {
+    pEl.textContent = "YOU WIN!!!!";
+    humanScore = 0;
+    computerScore = 0;
+  } else if (computerScore === 5) {
+    pEl.textContent = "You lose :(";
+    humanScore = 0;
+    computerScore = 0;
+  }
 });
