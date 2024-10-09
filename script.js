@@ -9,27 +9,27 @@ function getComputeChoice() {
   return choice;
 }
 
-function getHumanChoice() {
-  humanChoice = "";
-  while (
-    humanChoice !== "rock" ||
-    humanChoice !== "paper" ||
-    humanChoice !== "scissors"
-  ) {
-    humanChoice = prompt("What hand will you play, mortal?", "rock");
-    if (
-      humanChoice.toLowerCase() === "rock" ||
-      humanChoice.toLowerCase() === "paper" ||
-      humanChoice.toLowerCase() === "scissors"
-    )
-      humanChoice = humanChoice.toLowerCase();
-    return humanChoice;
-  }
-}
+// function getHumanChoice() {
+//   humanChoice = "";
+//   while (
+//     humanChoice !== "rock" ||
+//     humanChoice !== "paper" ||
+//     humanChoice !== "scissors"
+//   ) {
+//     humanChoice = prompt("What hand will you play, mortal?", "rock");
+//     if (
+//       humanChoice.toLowerCase() === "rock" ||
+//       humanChoice.toLowerCase() === "paper" ||
+//       humanChoice.toLowerCase() === "scissors"
+//     )
+//       humanChoice = humanChoice.toLowerCase();
+//     return humanChoice;
+//   }
+// }
 
 function playRound(humanChoice, computerChoice) {
   let message = "";
-  humanChoice = getHumanChoice();
+  // humanChoice = getHumanChoice();
   computerChoice = getComputeChoice();
   if (winCondition(humanChoice, computerChoice) === humanChoice) {
     humanScore++;
@@ -40,6 +40,7 @@ function playRound(humanChoice, computerChoice) {
   } else {
     message = `It's a draw, you both chose ${humanChoice}`;
   }
+  alert(message);
   return message;
 }
 
@@ -54,9 +55,25 @@ function winCondition(humanChoice, computerChoice) {
   else return computerChoice;
 }
 
-function playGame() {
-  for (let i = 0; i < 5; i++) {
-    let roundResult = playRound();
-    console.log(roundResult);
+// function playGame() {
+//   for (let i = 0; i < 5; i++) {
+//     let roundResult = playRound();
+//     console.log(roundResult);
+//   }
+// }
+
+const buttons = document.querySelector(".buttons");
+
+buttons.addEventListener("click", function () {
+  switch (event.target.id) {
+    case "rock":
+      playRound("rock", computerChoice);
+      break;
+    case "paper":
+      playRound("paper", computerChoice);
+      break;
+    case "scissors":
+      playRound("scissors", computerChoice);
+      break;
   }
-}
+});
